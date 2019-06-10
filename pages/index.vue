@@ -3,15 +3,16 @@
     <div class="posts">
       <nuxt-link :to="'posts/'+post.fields.slug" class="post" v-for="(post, index) in posts" :key="index">
         <div class="thumb">
-         
+          <img :src="post.fields.image.fields.file.url">
         </div>
         <div class="post-text">
           <p>{{ formatDate(post.sys.createdAt) }}</p>
           <h2>{{ post.fields.title }}</h2>
-        </div>
+        </div>   
       </nuxt-link>
     </div>
   </section>
+
 </template>
 
 <script>
@@ -45,9 +46,12 @@ export default {
 
 <style lang="scss">
 section.latest-posts {
-  padding: 10px;
+  height: 1000px;
+  padding: -10px;
+  max-height: 5000px;
+  background: #ddd;
   .posts {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
     display: flex;

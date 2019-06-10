@@ -46,13 +46,15 @@ export default {
 
 <style lang="scss">
 article.article {
+  height: 1000px;
+  background: #ddd;
   padding: 10px;
   .single {
     max-width: 900px;
     margin: 0 auto;
     padding: 10px;
     color: #222;
-    border: 2px solid #444;
+
     border-radius: 10px;
     h1, h2, h3 {
       margin: 16px 0;
