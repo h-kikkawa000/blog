@@ -3,7 +3,6 @@
     <div class="posts">
       <nuxt-link :to="'posts/'+post.fields.slug" class="post" v-for="(post, index) in posts" :key="index">
         <div class="thumb">
-          <img :src="post.fields.image.fields.file.url">
         </div>
         <div class="post-text">
           <p>{{ formatDate(post.sys.createdAt) }}</p>
