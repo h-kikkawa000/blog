@@ -35,7 +35,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/contentful'
+    '~/plugins/contentful',
+    '~/plugins/prism',
   ],
 
   /*
@@ -45,13 +46,32 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/tailwindcss'
   ],
   markdownit: {
-    injected: true,
-    html: true,
+    preset: 'default',
+    injected: true, 
+    breaks: true, 
+    html: true, 
     linkify: true,
-    typography: true,
+    typography: true, 
+    xhtmlOut: true,
+    langPrefix: 'language-',
+    quotes: '“”‘’',
+    highlight: function (/*str, lang*/) { return ''; },
+  },
+  sitemap: {
+    hostname: 'https://example.com',
+    routes() {
+      return client
+      .getEntries({ content_type: 'post' })
+      .then(entries => {
+        return entries.items.map(entry => {
+          return "/posts/" + entry.fields.slug
+        })
+      })
+    }
   },
   generate: {
     routes() {
@@ -80,5 +100,11 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+
+  /* add */
+  head: {
+    title: 'まいポートフォリオ',  //タイトルが設定されなかった時用のデフォルト
+    titleTemplate: '%s - まいポートフォリオ'
   }
 }
