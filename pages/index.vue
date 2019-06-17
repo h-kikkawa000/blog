@@ -7,18 +7,19 @@
     </div>
     <div class="flex flex-wrap m-4" >
       <div class="w-ful sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/3 m-2 max-w-sm rounded overflow-hidden shadow-lg  hover:shadow-2xl" v-for="(post, index) in posts" :key="index">
-        <nuxt-link :to="'posts/'+post.fields.slug" class="">
-          <div class="relative img-wrap h-64">
-            <img class="w-full h-full shadow-lg" :src="post.fields.image.fields.file.url" alt="">
+        <nuxt-link :to="'posts/'+post.fields.slug" class="link">
+          <div class="relative img-wrap h-48">
+            <img class="w-auto h-full inline-block shadow-lg" :src="post.fields.image.fields.file.url" alt="">
             <div class="absolute right-0 top-0 py-2 px-2 ">
               <object>
-                <nuxt-link :to="'posts/'+post.fields.slug" class="inline-block bg-orange-400 rounded-full px-2 py-1 text-xs  font-semibold hover:text-white hover:bg-orange-600 shadow-2xl">{{ post.fields.kubun }} </nuxt-link>
+                <nuxt-link :to="'posts/'+post.fields.slug" class="link inline-block bg-orange-400 rounded-full px-2 py-1 text-xs  font-semibold hover:text-white hover:bg-orange-600 shadow-2xl">{{ post.fields.kubun }} </nuxt-link>
               </object>
             </div>
           </div>
           <div class="px-6 py-2">
             <div class="font-bold text-xl mb-2 h-16 overflow-hidden">{{ post.fields.title }}</div>
-            <div class="text-gray-600 text-base h-32 overflow-hidden">{{ post.fields.content }}</div>
+            <div class="text-gray-600 text-base h-32
+             overflow-hidden">{{ post.fields.content }}</div>
           </div>
           </nuxt-link>
           <div class="flex flex-wrap px-3 py-1">
@@ -38,7 +39,7 @@
               <svg class="fill-current text-teal-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M0 10V2l2-2h8l10 10-10 10L0 10zm4.5-4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
               </svg>
-              <nuxt-link :to="'posts/'+post.fields.tags" class="inline-block bg-gray-200 rounded-full px-2 py-1 text-xs text-grey-darker mr-3 hover:bg-gray-500 hover:text-gray-100" v-for="(tag, index2) in post.fields.tags" :key="index2">{{ tag }}</nuxt-link>
+              <nuxt-link :to="'posts/'+post.fields.tags" class="link inline-block bg-gray-200 rounded-full px-2 py-1 text-xs text-grey-darker mr-3 hover:bg-gray-500 hover:text-gray-100" v-for="(tag, index2) in post.fields.tags" :key="index2">{{ tag }}</nuxt-link>
               </object>
             </div>
           </div>
@@ -114,5 +115,10 @@ export default {
 .img-wrap img {
   display: block;
   opacity: 0.9;
+}
+
+.link {
+  color: none;
+  text-decoration: none;
 }
 </style>
