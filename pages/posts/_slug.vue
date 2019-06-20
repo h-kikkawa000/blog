@@ -13,7 +13,6 @@
             </svg>
             <div class="px-2">{{ formatDate(post.sys.updatedAt) }}</div>
           </div>
-          <p class="font-bold">{{ post.fields.title }}</p>
         </div>
       </div>
       <div class="flex flex-wrap m-5">
@@ -46,6 +45,9 @@ export default {
   mounted() {
     console.log(this.post);
     Prism.highlightAll();
+      this.$store.dispatch('writeTitle',  this.post.fields.title)
+      this.$store.dispatch('writeTags',  this.post.fields.tags)
+      this.$store.dispatch('writeKubun',  this.post.fields.kubun)
   },
   methods: {
     formatDate(iso) {

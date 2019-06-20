@@ -104,7 +104,7 @@ export default {
 
   /* add */
   head: {
-    title: 'まいポートフォリオ',  //タイトルが設定されなかった時用のデフォルト
-    titleTemplate: '%s - まいポートフォリオ'
+    title: 'ポートフォリオ',  //タイトルが設定されなかった時用のデフォルト
+    titleTemplate: '%s - ポートフォリオ'
   }
 }

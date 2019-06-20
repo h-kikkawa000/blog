@@ -5,7 +5,14 @@
 	<div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
 		<!--Left Col-->
 		<div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-			<h1 class="my-4 text-5xl font-bold leading-tight">ぽーとふぉりお</h1>
+      <p class="link inline-block bg-orange-500 rounded-full px-2 py-1 text-xs font-semibold hover:text-white hover:bg-orange-600 shadow-2xl" v-show="$store.state.kubun.length">{{ this.$store.state.kubun }}</p>
+			<h1 class="mb-3 text-5xl font-bold leading-tight text-white">{{ this.$store.state.title }}</h1>
+              <object v-show="$store.state.tags.length">
+              <svg class="fill-current text-blue-100 inline-block h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M0 10V2l2-2h8l10 10-10 10L0 10zm4.5-4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+              </svg>
+              <p class="inline-block bg-blue-100 rounded-full px-2 py-1 text-xs text-grey-darker ml-2 mr-2 hover:bg-blue-500 hover:text-gray-100" v-for="(tag, index2) in $store.state.tags" :key="index2">{{ tag }}</p>
+              </object>
 		</div>
 		<!--Right Col-->
 		<div class="flex flex-wrap mx-auto">

@@ -43,7 +43,6 @@
               </object>
             </div>
           </div>
-        
       </div>
     </div>
   </div>
@@ -66,6 +65,14 @@ export default {
   head: {
     title: '記事一覧',
   },
+  mounted() {
+    let arr = [];
+    console.log(this.post);
+    Prism.highlightAll();
+      this.$store.dispatch('writeTitle',  'ポートフォリオ'),
+      this.$store.dispatch('writeTags',  []),
+      this.$store.dispatch('writeKubun',  '')
+  },  
   methods: {
     formatDate(iso) {
       const date = new Date(iso)
@@ -77,36 +84,8 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-</style>
-<script>
-import client from '~/plugins/contentful'
-export default {
-  asyncData({ params }) {
-    return client
-      .getEntries({
-        content_type: 'post',
-        order: '-sys.createdAt',
-      })
-      .then(entries => {
-        return { posts: entries.items }
-      })
-      .catch(e => console.log(e))
-  },
-  head: {
-    title: '記事一覧',
-  },
-  methods: {
-    formatDate(iso) {
-      const date = new Date(iso)
-      const yyyy = new String(date.getFullYear())
-      const mm = new String(date.getMonth() + 1).padStart(2, "0")
-      const dd = new String(date.getDate()).padStart(2, "0")
-      return `${yyyy}.${mm}.${dd}`
-    }
-  }
-}
-</script>
+
+
 
 <style lang="scss">
 .img-wrap {
