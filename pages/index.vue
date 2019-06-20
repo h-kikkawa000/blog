@@ -8,7 +8,7 @@
     <div class="flex flex-wrap m-4" >
       <div class="w-ful sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/3 m-2 max-w-sm rounded overflow-hidden shadow-lg  hover:shadow-2xl" v-for="(post, index) in posts" :key="index">
         <nuxt-link :to="'posts/'+post.fields.slug" class="link">
-          <div class="relative img-wrap h-48">
+          <div class="relative img-wrap h-64">
             <img class="w-auto h-full inline-block shadow-lg" :src="post.fields.image.fields.file.url" alt="">
             <div class="absolute right-0 top-0 py-2 px-2 ">
               <object>
@@ -118,7 +118,7 @@ export default {
 }
 
 .link {
-  color: none;
   text-decoration: none;
+  color:#000000;
 }
 </style>

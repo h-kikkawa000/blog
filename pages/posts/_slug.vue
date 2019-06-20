@@ -1,11 +1,25 @@
 <template>
-  <article class="article">
-    <div class="single">
-      <h1 class="post-title">{{ post.fields.title }}</h1>
-      <p class="post-created-at">{{ formatDate(post.sys.createdAt) }}</p>
-      <div class="post-content line-numbers" v-html="$md.render(post.fields.content)"></div>
+
+    <div class="container mx-auto px-4 bg-gray-100 sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 m-10">
+      <div class="flex flex-wrap ">
+        <div class="w-full bg-blue-lightest border-b border-blue text-blue-dark px-4 " role="alert">
+          <div class="flex flex-wrap">
+            <svg class="fill-current  inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M1 4c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm2 2v12h14V6H3zm2-6h2v2H5V0zm8 0h2v2h-2V0zM5 9h2v2H5V9zm0 4h2v2H5v-2zm4-4h2v2H9V9zm0 4h2v2H9v-2zm4-4h2v2h-2V9zm0 4h2v2h-2v-2z"/>
+            </svg>
+            <div class="px-2">{{ formatDate(post.sys.createdAt) }}</div>
+            <svg class="fill-current text-teal-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M14.66 15.66A8 8 0 1 1 17 10h-2a6 6 0 1 0-1.76 4.24l1.42 1.42zM12 10h8l-4 4-4-4z"/>
+            </svg>
+            <div class="px-2">{{ formatDate(post.sys.updatedAt) }}</div>
+          </div>
+          <p class="font-bold">{{ post.fields.title }}</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap m-5">
+        <div class="w-full text-base break-words" v-html="$md.render(post.fields.content)"></div>
+      </div>
     </div>
-  </article>
 </template>
 
 <script>
@@ -46,41 +60,4 @@ export default {
 </script>
 
 <style lang="scss">
-article.article {
-  height: 100%;
-  background: #ddd;
-  padding: 10px;
-  .single {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 10px;
-    color: #222;
-
-    border-radius: 10px;
-    h1, h2, h3 {
-      margin: 16px 0;
-    }
-    h1.post-title {
-      font-size: 32px;
-      text-decoration: underline;
-    }
-    .post-content {
-      h1 {
-        font-size: 32px;
-      }
-      h2 {
-        font-size: 24px;
-        background: #ccc
-      }
-      p {
-        margin: 16px 0;
-        font-size: 13px;
-      }
-      img {
-        max-width: 100%;
-        border: 1px solid #000;
-      }
-    }
-  }
-}
 </style>
