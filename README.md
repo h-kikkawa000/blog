@@ -1,5 +1,4 @@
-# blog
-
+# test
 > My epic Nuxt.js project
 
 ## Build Setup
